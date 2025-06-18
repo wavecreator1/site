@@ -358,7 +358,7 @@
             
             <p>Previously, I started Krank Consulting, a startup that paid high school students to create social content for local small businesses (before UGC blew up). I grew Krank to over $12,000 ARR before going to Colby.</p>
             
-            <p>View my <a href="#writings" onclick="showPage('writings')">writings</a> and <a href="#books" onclick="showPage('books')">notes on books</a> or follow me on <a href="https://siddsehgal.substack.com/" target="_blank">Substack</a>, <a href="https://www.linkedin.com/in/siddhant-sehgal1/" target="_blank">LinkedIn</a>, and <a href="https://x.com/sidd_sehgal" target="_blank">Twitter</a>.</p>
+            <p>View my <a href="#writings" onclick="showPage('writings')">writings</a> or follow me on <a href="https://siddsehgal.substack.com/" target="_blank">Substack</a>, <a href="https://www.linkedin.com/in/siddhant-sehgal1/" target="_blank">LinkedIn</a>, and <a href="https://x.com/sidd_sehgal" target="_blank">Twitter</a>.</p>
             
             <p>I read and respond to all of my emails.*</p>
             
@@ -550,21 +550,6 @@
             return false;
         }
 
-        function showBook(bookId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show the specific book notes
-            document.getElementById(bookId + '-book').classList.add('active');
-            
-            // Update URL hash
-            window.location.hash = bookId;
-            
-            // Prevent default anchor behavior
-            return false;
-        }
-
         // Handle hash changes (back/forward buttons)
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash.slice(1);
@@ -577,14 +562,11 @@
                 if (pageElement && pageElement.classList.contains('page')) {
                     showPage(hash);
                 } else {
-                    // Check if it's an article or book
+                    // Check if it's an article
                     const articleElement = document.getElementById(hash + '-article');
-                    const bookElement = document.getElementById(hash + '-book');
                     
                     if (articleElement) {
                         showWriting(hash);
-                    } else if (bookElement) {
-                        showBook(hash);
                     }
                 }
             }
