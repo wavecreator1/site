@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhant Sehgal</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 60px 20px 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 45px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -1.2px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        h2 {
+            font-size: 38px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.8px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-arrow {
+            font-size: 26px;
+            color: #333;
+            border: none;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .back-arrow:hover {
+            color: #666;
+            border: none;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #333;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: block;
+            width: 24px;
+            height: 24px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-weight: 400;
+            color: #333;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid #0066cc;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #0052a3;
+            border-bottom-color: #0052a3;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #666;
+            border-bottom: 1px solid #666;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .back-link:hover {
+            color: #333;
+            border-bottom-color: #333;
+        }
+
+        .date-section {
+            margin-bottom: 40px;
+        }
+
+        .date-header {
+            font-size: 18px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .writing-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .writing-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .writing-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        .problems-list {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: problem-counter;
+            color: #333;
+        }
+
+        .problems-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            counter-increment: problem-counter;
+            color: #333;
+        }
+
+        .problems-list li:before {
+            content: counter(problem-counter) ".";
+            position: absolute;
+            left: 0;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .problems-list a {
+            color: #333;
+            border-bottom: 1px solid transparent;
+            font-size: 15px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .problems-list a:hover {
+            color: #0066cc;
+            border-bottom-color: #0066cc;
+        }
+
+        #problems {
+            background-color: #f5f5f5;
+        }
+
+        #problems h2 {
+            color: #333;
+        }
+
+        .writing-list a {
+            color: #333;
+            border-bottom: 1px solid transparent;
+            font-size: 19px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .writing-list a:hover {
+            color: #0066cc;
+            border-bottom-color: #0066cc;
+        }
+
+        .content-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-list li {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .content-list li:last-child {
+            border-bottom: none;
+        }
+
+        .content-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .content-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .article-date {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+            margin: 0 0 20px 0;
+        }
+
+        .article-content {
+            max-width: 650px;
+        }
+
+        .article-content p {
+            font-size: 19px;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        .article-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            color: #333;
+        }
+
+        .email-footnote {
+            font-size: 14px;
+            color: #666;
+            margin-top: -16px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .header-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .social-links {
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="header-wrapper">
+                <h1>Siddhant Sehgal</h1>
+                <div class="social-links">
+                    <a href="https://siddsehgal.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Substack">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11L22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/siddhant-sehgal1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/sidd_sehgal" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+
+        <!-- Problems Page -->
+        <div id="problems" class="page">
+            <div class="page-header">
+                <h2>Important Problems</h2>
+                <a href="#home" onclick="showPage('home')" class="back-arrow">←</a>
+            </div>
+            <hr class="divider">
+            
+            <ol class="problems-list">
+                <li><a href="#">How to make AI more accessible to non-technical users</a></li>
+                <li><a href="#">Reducing the cost of compute for startups</a></li>
+                <li><a href="#">Democratizing access to private markets</a></li>
+                <li><a href="#">Building better financial literacy tools</a></li>
+            </ol>
+        </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <p>I'm an Economics and Computer Science double major at Colby and you can probably find me at a coffee shop with a Celsius. My time is split researching, reading, and writing. I enjoy thinking about <a href="https://www.notion.so/Important-Problems-214109a6143a805f8008d824541eb9d0" target="_blank">important problems</a> and am curious about tech investing and growth.</p>
+            
+            <p>Currently, I'm a researcher at <a href="https://www.contrary.com/" target="_blank">Contrary Capital</a>, where I publish in-depth analyses on emerging AI hardware startups and FinTech companies. I also work at <a href="https://www.keyhorse.vc/" target="_blank">Keyhorse Capital</a>, evaluating portfolio companies for follow-on investments.</p>
+            
+            <p>Previously, I started Krank Consulting, a startup that paid high school students to create social content for local small businesses (before UGC blew up). I grew Krank to over $12,000 ARR before going to Colby.</p>
+            
+            <p>View my <a href="#writings" onclick="showPage('writings')">writings</a> and <a href="#books" onclick="showPage('books')">notes on books</a> or follow me on <a href="https://siddsehgal.substack.com/" target="_blank">Substack</a>, <a href="https://www.linkedin.com/in/siddhant-sehgal1/" target="_blank">LinkedIn</a>, and <a href="https://x.com/sidd_sehgal" target="_blank">Twitter</a>.</p>
+            
+            <p>I read and respond to all of my emails.*</p>
+            
+            <p class="email-footnote">*If you email <a href="mailto:Snsehg27@colby.edu">me</a>, be concise and ideally have a specific ask 🫡<br>I am a strong <a href="https://adamgrant.net/book/give-and-take/" target="_blank">believer</a> in helping others, so feel free to reach out!</p>
+        </div>
+
+        <!-- Writings Page -->
+        <div id="writings" class="page">
+            <div class="page-header">
+                <h2>Writing</h2>
+                <a href="#home" onclick="showPage('home')" class="back-arrow">←</a>
+            </div>
+            <hr class="divider">
+            
+            <!-- TO ADD NEW WRITINGS:
+                 1. Add a new date section if needed (copy the div with class="date-section")
+                 2. Add your writing as a new <li> item with onclick="showWriting('your-article-id')"
+                 3. Create the corresponding article section below (see Jobs example)
+            -->
+            
+            <div class="date-section">
+                <p class="date-header">June 2025</p>
+                <ul class="writing-list">
+                    <li><a href="#jobs" onclick="showWriting('jobs')">Jobs</a></li>
+                    <!-- Add more June 2025 writings here -->
+                </ul>
+            </div>
+            
+            <!-- Add more date sections here as needed:
+            <div class="date-section">
+                <p class="date-header">July 2025</p>
+                <ul class="writing-list">
+                    <li><a href="#article-id" onclick="showWriting('article-id')">Article Title</a></li>
+                </ul>
+            </div>
+            -->
+        </div>
+
+        <!-- Books Page -->
+        <div id="books" class="page">
+            <div class="page-header">
+                <h2>Books</h2>
+                <a href="#home" onclick="showPage('home')" class="back-arrow">←</a>
+            </div>
+            <hr class="divider">
+            
+            <!-- TO ADD NEW BOOKS:
+                 1. Add a new year section if needed (copy the div with class="date-section")
+                 2. Add your book as a new <li> item with onclick="showBook('book-id')"
+                 3. Create the corresponding book notes page below (see Zero to One example)
+            -->
+            
+            <div class="date-section">
+                <p class="date-header">June 2025</p>
+                <ul class="writing-list">
+                    <li><a href="#zero-to-one" onclick="showBook('zero-to-one')">Zero to One</a></li>
+                    <!-- Add more June 2025 books here -->
+                </ul>
+            </div>
+            
+            <div class="date-section">
+                <p class="date-header">May 2025</p>
+                <ul class="writing-list">
+                    <li><a href="#hard-thing" onclick="showBook('hard-thing')">The Hard Thing About Hard Things</a></li>
+                    <li><a href="#thinking-fast-slow" onclick="showBook('thinking-fast-slow')">Thinking, Fast and Slow</a></li>
+                    <!-- Add more May 2025 books here -->
+                </ul>
+            </div>
+            
+            <!-- Add more month/year sections here as needed:
+            <div class="date-section">
+                <p class="date-header">April 2025</p>
+                <ul class="writing-list">
+                    <li><a href="#book-id" onclick="showBook('book-id')">Book Title</a></li>
+                </ul>
+            </div>
+            -->
+        </div>
+
+        <!-- BOOK NOTES PAGES SECTION -->
+        <!-- TO ADD NEW BOOK NOTES:
+             1. Copy the entire Zero to One div below
+             2. Change the id from "zero-to-one-book" to "your-book-id-book"
+             3. Update the title, author, and add your notes
+             4. Make sure the id matches what you used in showBook() above
+        -->
+
+        <!-- Zero to One Book Notes -->
+        <div id="zero-to-one-book" class="page">
+            <div class="page-header">
+                <h2>Zero to One</h2>
+                <a href="#books" onclick="showPage('books')" class="back-arrow">←</a>
+            </div>
+            <p class="article-date">Peter Thiel</p>
+            <hr class="divider">
+            
+            <div class="article-content">
+                <p>Your notes on Zero to One will go here. You can add your thoughts, key takeaways, favorite quotes, and how the book influenced your thinking.</p>
+            </div>
+        </div>
+
+        <!-- The Hard Thing About Hard Things Book Notes -->
+        <div id="hard-thing-book" class="page">
+            <div class="page-header">
+                <h2>The Hard Thing About Hard Things</h2>
+                <a href="#books" onclick="showPage('books')" class="back-arrow">←</a>
+            </div>
+            <p class="article-date">Ben Horowitz</p>
+            <hr class="divider">
+            
+            <div class="article-content">
+                <p>Your notes on The Hard Thing About Hard Things will go here.</p>
+            </div>
+        </div>
+
+        <!-- Thinking, Fast and Slow Book Notes -->
+        <div id="thinking-fast-slow-book" class="page">
+            <div class="page-header">
+                <h2>Thinking, Fast and Slow</h2>
+                <a href="#books" onclick="showPage('books')" class="back-arrow">←</a>
+            </div>
+            <p class="article-date">Daniel Kahneman</p>
+            <hr class="divider">
+            
+            <div class="article-content">
+                <p>Your notes on Thinking, Fast and Slow will go here.</p>
+            </div>
+        </div>
+
+        <!-- ARTICLE PAGES SECTION -->
+        <!-- TO ADD NEW ARTICLES:
+             1. Copy the entire Jobs article div below
+             2. Change the id from "jobs-article" to "your-article-id-article"
+             3. Update the title, date, and content
+             4. Make sure the id matches what you used in showWriting() above
+        -->
+
+        <!-- Jobs Article -->
+        <div id="jobs-article" class="page">
+            <div class="page-header">
+                <h2>Jobs</h2>
+                <a href="#writings" onclick="showPage('writings')" class="back-arrow">←</a>
+            </div>
+            <p class="article-date">May 2025</p>
+            <hr class="divider">
+            
+            <div class="article-content">
+                <p>For most of my life, I believed in always saying yes. Yes to attending events, yes to meeting new people, yes to other people's suggestions. By casting a wider net you get to explore more options, and you never know what you might discover when you say yes to something new.</p>
+                
+                <p>But recently, I've started to reevaluate how I'm spending my time. I think saying yes is good at the start, when you're exploring many things and don't have clarity on what you're looking for. But as you gain that clarity, it becomes more and more valuable to say no instead.</p>
+                
+                <p>More often than not, people have incentives for you to do something that aren't necessarily aligned with your own. Maybe they're referring you to a startup because they invested in it. Maybe they're inviting you to an event because they want to recruit you. These incentives aren't intrinsically bad, but remember that people are most commonly acting out of their own best interest, not yours.</p>
+                
+                <p>You are not obligated to give anyone your time. By saying no to what's less interesting or important to you, you free up time to focus on what is. Focus is key: it's very difficult to become great as a jack of all trades. Be ruthless with your time, since it's your most valuable resource, and be intentional about who you give it to.</p>
+            </div>
+        </div>
+
+        <!-- Add more article pages here following the same pattern -->
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update URL hash
+            window.location.hash = pageId;
+            
+            // Prevent default anchor behavior
+            return false;
+        }
+
+        function showWriting(writingId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show the specific article
+            document.getElementById(writingId + '-article').classList.add('active');
+            
+            // Update URL hash
+            window.location.hash = writingId;
+            
+            // Prevent default anchor behavior
+            return false;
+        }
+
+        function showBook(bookId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show the specific book notes
+            document.getElementById(bookId + '-book').classList.add('active');
+            
+            // Update URL hash
+            window.location.hash = bookId;
+            
+            // Prevent default anchor behavior
+            return false;
+        }
+
+        // Handle hash changes (back/forward buttons)
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.slice(1);
+            
+            if (!hash || hash === 'home') {
+                showPage('home');
+            } else {
+                // Check if it's a regular page
+                const pageElement = document.getElementById(hash);
+                if (pageElement && pageElement.classList.contains('page')) {
+                    showPage(hash);
+                } else {
+                    // Check if it's an article or book
+                    const articleElement = document.getElementById(hash + '-article');
+                    const bookElement = document.getElementById(hash + '-book');
+                    
+                    if (articleElement) {
+                        showWriting(hash);
+                    } else if (bookElement) {
+                        showBook(hash);
+                    }
+                }
+            }
+        });
+
+        // Handle initial page load with hash
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.slice(1);
+            if (hash && hash !== 'home') {
+                // Trigger hashchange event to load the right page
+                window.dispatchEvent(new HashChangeEvent('hashchange'));
+            }
+        });
+    </script>
+</body>
+</html>
