@@ -108,6 +108,17 @@
             letter-spacing: 0;
         }
 
+        .main-toggle-arrow {
+            display: inline-block;
+            transition: transform 0.2s;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .main-toggle-arrow.collapsed {
+            transform: rotate(-90deg);
+        }
+
         .email-footnote {
             font-size: 12px;
             color: #666;
@@ -251,15 +262,20 @@
         
         <p>Currently, I'm a researcher at <a href="https://www.contrary.com/" target="_blank">Contrary Capital</a>, where I publish in-depth analyses on emerging AI hardtech and consumer startups. I also work at <a href="https://www.keyhorse.vc/" target="_blank">Keyhorse Capital</a>, evaluating portfolio companies for follow-on investments.</p>
         
+        <p>Previously, I started Krank Consulting, a startup that paid high school students to create social content for local small businesses (before UGC blew up). I grew Krank to over $12,000 ARR before going to Colby.</p>
+        
         <p>Check out my <a href="https://www.notion.so/Tech-Investing-21b109a6143a80b69636f00c68d4ccc6" target="_blank">investment thesis</a> or follow me on <a href="https://siddsehgal.substack.com/" target="_blank">Substack</a>, <a href="https://www.linkedin.com/in/siddhant-sehgal1/" target="_blank">LinkedIn</a>, and <a href="https://x.com/sidd_sehgal" target="_blank">Twitter</a>.</p>
         
         <p>I read and respond to all of my emails.*</p>
         
         <p class="email-footnote">*I am a strong <a href="https://adamgrant.net/book/give-and-take/" target="_blank">believer</a> in helping others, so feel free to reach <a href="mailto:Snsehg27@colby.edu">out</a> 🫡</p>
         
-        <h2 class="section-header" style="margin-top: 40px;">Writings</h2>
+        <h2 class="section-header" style="margin-top: 40px; cursor: pointer; display: flex; align-items: center;" onclick="toggleWritings()">
+            <span>Writings</span>
+            <span class="main-toggle-arrow" id="writings-arrow" style="margin-left: 8px;">▾</span>
+        </h2>
         
-        <div class="writings-section">
+        <div class="writings-section" id="writings-section">
             <div class="category-section">
                 <div class="category-header" onclick="toggleCategory('personal')">
                     <span class="toggle-arrow" id="personal-arrow">▸</span>
@@ -309,6 +325,19 @@
             } else {
                 list.style.display = 'none';
                 arrow.classList.remove('expanded');
+            }
+        }
+        
+        function toggleWritings() {
+            const section = document.getElementById('writings-section');
+            const arrow = document.getElementById('writings-arrow');
+            
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                arrow.classList.remove('collapsed');
+            } else {
+                section.style.display = 'none';
+                arrow.classList.add('collapsed');
             }
         }
     </script>
