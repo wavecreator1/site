@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "important-problems",
+    "title": "important problems",
+    "category": "Venture",
+    "content": "# Important Problems\n\nA living list of questions and areas I'm exploring. For the canonical, evolving version, see my Notion page: [Important Problems](https://www.notion.so/Important-Problems-214109a6143a805f8008d824541eb9d0).\n\n## Why this list\n- To focus my research and writing\n- To identify where I can develop unique insight\n- To guide what I build and invest in\n\n## Themes\n- Deeptech commercialization and company formation\n- Software for the physical world (infra, supply chain, robotics)\n- Crypto primitives with real-world utility\n\nMore to come — this post will evolve as I learn more.",
+    "excerpt": "A living list of questions and areas I'm exploring across deeptech, software for the physical world, and crypto.",
+    "coverImageUrl": "",
+    "tags": [
+      "venture",
+      "research"
+    ],
+    "createdAt": "2025-09-27T00:00:00.000Z",
+    "updatedAt": "2025-09-27T00:00:00.000Z"
+  },
+  {
+    "slug": "lessons-from-george-bonaci",
+    "title": "Lessons from George Bonaci",
+    "category": "Growth",
+    "content": "[George Bonaci](https://www.linkedin.com/in/georgebonaci/) is the VP of Growth & Demand at [Ramp](http://ramp.com/).\n\n## Philosophy: Growth as Science\n\n- **Growth = Science**: Playbooks rarely transfer 1:1. Start with a blank slate — form a hypothesis → run experiments. Most marketers apply what they already know; real growth is discovering what works for your company.\n- **Mindset**: Think like a scientist — experimental design, measurement, and rigor.\n- **Velocity > Perfection**: Bias toward running more experiments faster vs. perfecting one.\n  - **The tradeoff**: A scrappy experiment that 3x's a conversion rate to hit the quarter is fine. Later, tighten rigor to understand causality. Velocity and rigor are dials based on time horizon.\n\n## Portfolio Approach\n\n- Treat growth like a VC portfolio with intentional allocation.\n  - **Long‑term (big swings)**: High‑risk, high‑reward — step‑changes. Most will fail.\n  - **Short‑term (incremental)**: Higher‑confidence 2–5% gains that help you hit this quarter.\n- **When a bet works → push to saturation**: Don't just 2–3x spend. Scale the channel quickly to its asymptote and find where the response curve decays. Most teams scale winners too slowly.\n\n![Diminishing-returns response curve for media investment → incremental sales.](https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/image-1-1758998845345.png)\n\n- **Finding Alpha: Iterate + Experiment**\n\n    1. **Do what's new**: Be early where the channel is under‑priced or novel (e.g., first B2B brand on TikTok).\n    2. **Do what's contrarian**: Try what \"shouldn't\" work (e.g., Direct Mail becoming a major channel).\n\n## Mental Models\n\n- **Pre‑mortems & Post‑mortems**\n  - The value of a post‑mortem depends on the quality of the pre‑mortem.\n  - **Pre‑mortem**: Part of initial design — enumerate not just 3–4 big risks but the many small failure modes; assign probabilities.\n  - **The real learning = unpredicted failures**: When something fails for a reason you didn't anticipate, it reveals a flawed assumption in your model of the world.\n    - Predicted failures mostly confirm existing beliefs; limited learning.\n    - Investigate the surprise, update the model, and generalize the lesson across future experiments.\n  - **Key post‑mortem question**: \"Did we learn something we can generalize to other parts of the business?\"\n",
+    "excerpt": "Notes on treating growth as a science: portfolio of bets, velocity over perfection, finding alpha, and better pre/post‑mortems.",
+    "coverImageUrl": "",
+    "tags": [
+      "growth"
+    ],
+    "createdAt": "2025-09-27T00:00:00.000Z",
+    "updatedAt": "2025-09-27T00:00:00.000Z"
+  }
+]
